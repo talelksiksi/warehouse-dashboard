@@ -12,7 +12,7 @@ import React, { useState, useEffect } from 'react';
 import MachineCard from './MachineCard';
 import '../styles/MachineGrid.css';
 
-function MachineGrid() {
+function MachineGrid({ lastMessage }) {
   const [machines, setMachines] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -56,6 +56,33 @@ function MachineGrid() {
     // Call fetch function
     fetchMachines();
   }, []); // Empty dependency array = run once on mount
+
+  // EFFECT 2: Handle WebSocket machine updates
+  useEffect(() => {
+    // Only process machine-update messages
+    if (!lastMessage || lastMessage.type !== 'machine-update') {
+      return;
+    }
+
+    const update = lastMessage;
+
+    console.log(`[MachineGrid] Update received: Machine ${update.id} → ${update.state.toUpperCase()}`);
+
+    // Update the specific machine in state
+    setMachines((prevMachines) =>
+      prevMachines.map((machine) =>
+        machine.id === update.id
+          ? {
+              ...machine,
+              state: update.state,
+              uptime_pct: update.uptime_pct,
+              production_rate: update.production_rate,
+              last_updated: update.last_updated,
+            }
+          : machine
+      )
+    );
+  }, [lastMessage]); // Re-run when lastMessage changes
 
   // Render
   return (

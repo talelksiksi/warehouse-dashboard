@@ -51,9 +51,9 @@ function App() {
         </div>
       </header>
 
-      {/* Main Content */}
+      {/* Main Content: Pass lastMessage to MachineGrid */}
       <main className="app-main">
-        <MachineGrid />
+        <MachineGrid lastMessage={lastMessage} />
       </main>
 
       {/* App Footer */}
