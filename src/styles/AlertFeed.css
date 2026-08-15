@@ -1,0 +1,56 @@
+.alert-feed {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.alert {
+  padding: 12px 16px;
+  border-radius: 4px;
+  color: white;
+  min-width: 250px;
+  animation: slideIn 0.3s ease-out;
+}
+
+.alert-info {
+  background: #2196F3;
+}
+
+.alert-warning {
+  background: #FFC107;
+  color: #333;
+}
+
+.alert-error {
+  background: #F44336;
+}
+
+.alert-success {
+  background: #4CAF50;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .alert-feed {
+    left: 10px;
+    right: 10px;
+  }
+
+  .alert {
+    min-width: auto;
+  }
+}

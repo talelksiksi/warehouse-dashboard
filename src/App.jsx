@@ -9,6 +9,8 @@
 import React, { useEffect } from 'react';
 import MachineGrid from './components/MachineGrid';
 import InventoryTable from './components/InventoryTable';
+import OrderQueue from './components/OrderQueue';
+import AlertFeed from './components/AlertFeed';
 import useWebSocket from './hooks/useWebSocket';
 import './App.css';
 
@@ -56,12 +58,15 @@ function App() {
       <main className="app-main">
         <MachineGrid lastMessage={lastMessage} />
         <InventoryTable lastMessage={lastMessage} />
+        <OrderQueue />
       </main>
 
       {/* App Footer */}
       <footer className="app-footer">
         <p>© 2024 Warehouse Dashboard | Status: {isConnected ? 'Online' : 'Offline'}</p>
       </footer>
+
+      <AlertFeed />
     </div>
   );
 }

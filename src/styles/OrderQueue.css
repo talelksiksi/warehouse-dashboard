@@ -1,0 +1,98 @@
+.order-container {
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 900px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.order-header h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+}
+
+.order-count {
+  font-size: 14px;
+  color: #999;
+}
+
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.order-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 12px;
+  border-left: 4px solid #999;
+  border-radius: 4px;
+  background: #f9f9f9;
+}
+
+.order-item.status-complete {
+  border-left-color: #4CAF50;
+}
+
+.order-item.status-in_progress {
+  border-left-color: #2196F3;
+}
+
+.order-id {
+  font-weight: 600;
+  min-width: 100px;
+}
+
+.order-progress {
+  flex: 1;
+}
+
+.stations {
+  display: flex;
+  gap: 8px;
+}
+
+.station {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.order-status {
+  font-size: 12px;
+  font-weight: bold;
+  min-width: 80px;
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .order-container {
+    margin: 10px;
+    padding: 12px;
+  }
+
+  .order-item {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
