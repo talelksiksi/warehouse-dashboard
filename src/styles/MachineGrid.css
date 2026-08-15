@@ -1,0 +1,248 @@
+/* ============================================
+   MACHINE GRID STYLES
+   ============================================ */
+
+/* Container */
+.machine-grid-container {
+  padding: 20px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Header */
+.grid-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.grid-header h2 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+  color: #333;
+}
+
+.machine-count {
+  font-size: 14px;
+  color: #999;
+  font-weight: 500;
+}
+
+/* Grid Layout */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+/* ============================================
+   MACHINE CARD STYLES
+   ============================================ */
+
+.machine-card {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-left: 4px solid #2196F3; /* Color set by inline style */
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hover Effect */
+.machine-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Card Header */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  gap: 8px;
+}
+
+.machine-name {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  flex: 1;
+  word-wrap: break-word;
+}
+
+.state-badge {
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: bold;
+  color: white;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Card Content */
+.card-content {
+  margin: 12px 0;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
+.info-row .label {
+  color: #999;
+  font-weight: 500;
+}
+
+.info-row .value {
+  color: #333;
+  font-weight: 600;
+  text-align: right;
+}
+
+/* Card Footer */
+.card-footer {
+  border-top: 1px solid #f0f0f0;
+  padding-top: 10px;
+  margin-top: 12px;
+}
+
+.timestamp {
+  font-size: 11px;
+  color: #bbb;
+}
+
+/* ============================================
+   STATE MESSAGES
+   ============================================ */
+
+.loading,
+.error,
+.empty-state {
+  padding: 40px 20px;
+  text-align: center;
+  font-size: 16px;
+  color: #999;
+  background: #f9f9f9;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  margin: 20px 0;
+}
+
+.loading {
+  color: #666;
+}
+
+.loading p {
+  margin: 0;
+}
+
+.error {
+  color: #F44336;
+  background: #ffebee;
+  border-color: #F44336;
+}
+
+.error p {
+  margin: 0 0 8px 0;
+  font-weight: 500;
+}
+
+.error small {
+  display: block;
+  font-size: 12px;
+  color: #d32f2f;
+}
+
+.empty-state p {
+  margin: 0;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/* Tablet (768px and below) */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+  }
+
+  .machine-grid-container {
+    padding: 12px;
+  }
+
+  .grid-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .grid-header h2 {
+    font-size: 22px;
+  }
+
+  .machine-card {
+    padding: 12px;
+  }
+
+  .machine-name {
+    font-size: 14px;
+  }
+
+  .card-content {
+    font-size: 12px;
+  }
+}
+
+/* Mobile (480px and below) */
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .machine-grid-container {
+    padding: 8px;
+  }
+
+  .grid-header h2 {
+    font-size: 20px;
+  }
+
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .state-badge {
+    align-self: flex-start;
+  }
+
+  .machine-card {
+    padding: 12px;
+  }
+
+  .machine-name {
+    font-size: 15px;
+  }
+
+  .info-row {
+    font-size: 12px;
+  }
+}
