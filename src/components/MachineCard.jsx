@@ -28,7 +28,7 @@ function MachineCard({ machine }) {
 
     // Cleanup timer on unmount
     return () => clearTimeout(timer);
-  }, [machine.state, machine.uptime_pct, machine.production_rate]); // Re-run when these change
+  }, [machine.id, machine.state, machine.uptime_pct, machine.production_rate]); // Re-run when these change
 
   // Map machine state to color
   const stateColorMap = {
