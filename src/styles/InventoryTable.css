@@ -1,0 +1,116 @@
+/* ============================================
+   INVENTORY TABLE STYLES
+   ============================================ */
+
+.inventory-container {
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 900px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.inventory-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.inventory-header h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+}
+
+.inventory-count {
+  font-size: 14px;
+  color: #999;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.inventory-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.inventory-table thead {
+  background: #f5f5f5;
+}
+
+.inventory-table th {
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+  color: #666;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.inventory-table td {
+  padding: 12px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.inventory-table tr:hover {
+  background: #fafafa;
+}
+
+.sku {
+  font-weight: 600;
+  color: #333;
+}
+
+.quantity {
+  font-weight: 600;
+  color: #2196F3;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+}
+
+.badge-ok {
+  background: #4CAF50;
+}
+
+.badge-low {
+  background: #FFC107;
+  color: #333;
+}
+
+.badge-critical {
+  background: #F44336;
+}
+
+.status-critical {
+  background: #ffebee;
+}
+
+.status-low {
+  background: #fff9c4;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .inventory-container {
+    margin: 10px;
+    padding: 12px;
+  }
+
+  .inventory-table th,
+  .inventory-table td {
+    padding: 8px;
+    font-size: 13px;
+  }
+}

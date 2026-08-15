@@ -8,6 +8,7 @@
 
 import React, { useEffect } from 'react';
 import MachineGrid from './components/MachineGrid';
+import InventoryTable from './components/InventoryTable';
 import useWebSocket from './hooks/useWebSocket';
 import './App.css';
 
@@ -54,6 +55,7 @@ function App() {
       {/* Main Content: Pass lastMessage to MachineGrid */}
       <main className="app-main">
         <MachineGrid lastMessage={lastMessage} />
+        <InventoryTable lastMessage={lastMessage} />
       </main>
 
       {/* App Footer */}
