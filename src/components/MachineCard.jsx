@@ -6,10 +6,30 @@
  * Color-coded based on state (idle=green, running=blue, error=red)
  */
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/MachineGrid.css'; // Uses shared CSS
 
 function MachineCard({ machine }) {
+  const [isPulsing, setIsPulsing] = useState(false);
+
+  // Detect when machine data changes and trigger pulse
+  useEffect(() => {
+    // Skip pulse on first render
+    // (we don't want to pulse when cards initially load)
+    if (!machine.id) return;
+
+    // Trigger pulse animation
+    setIsPulsing(true);
+
+    // Remove pulse class after animation completes (400ms)
+    const timer = setTimeout(() => {
+      setIsPulsing(false);
+    }, 400);
+
+    // Cleanup timer on unmount
+    return () => clearTimeout(timer);
+  }, [machine.state, machine.uptime_pct, machine.production_rate]); // Re-run when these change
+
   // Map machine state to color
   const stateColorMap = {
     idle: '#4CAF50',    // Green
@@ -21,7 +41,7 @@ function MachineCard({ machine }) {
 
   return (
     <div
-      className="machine-card"
+      className={`machine-card ${isPulsing ? 'pulse' : ''}`}
       style={{
         borderLeftColor: bgColor,
         backgroundColor: `${bgColor}15`, // 15% opacity for light background
